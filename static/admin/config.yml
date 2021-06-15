@@ -19,7 +19,8 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-        - name: 'blog'
+  
+  - name: 'playlist'
     label: 'Playlist'
     folder: 'content/playlist'
     format: 'frontmatter'
@@ -33,8 +34,10 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Bpm', name: 'bpm', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Music Playlist', name: 'musicplaylist', widget: 'list', fields: {
-        { label: 'Artiste', name: 'artiste', widget: 'string' },
-        { label: 'Song Title', name: 'songtitle', widget: 'string' }
-        { label: 'Song mp4', name: 'songmp4', widget: 'file' }
-      }}
+      - label: 'Music Playlist'
+        name: 'musicplaylist'
+        widget: 'list'
+        fields:
+          - { label: 'Artiste', name: 'artiste', widget: 'string' }
+          - { label: 'Song Title', name: 'songtitle', widget: 'string' }
+          - { label: 'Song mp4', name: 'songmp4', widget: 'file' }  
