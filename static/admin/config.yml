@@ -25,7 +25,7 @@ collections:
     folder: 'content/playlist'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:
@@ -40,4 +40,24 @@ collections:
         fields:
           - { label: 'Artiste', name: 'artiste', widget: 'string' }
           - { label: 'Song Title', name: 'songtitle', widget: 'string' }
-          - { label: 'Song mp4', name: 'songmp4', widget: 'file' }  
+          - { label: 'Song mp4', name: 'songmp4', widget: 'file' }
+
+  - name: 'musique'
+    label: 'Musique'
+    folder: 'content/musique'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Bpm', name: 'bpm', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Artiste', name: 'artiste', widget: 'string' }
+      - { label: 'Song mp4', name: 'songmp4', widget: 'file' }
+      - { label: 'Genre', name: 'genre', widget: 'string' }
+      - { label: 'Prix', name: 'prix', widget: 'string' }
+      - { label: 'Duree', name: 'duree', widget: 'string' }

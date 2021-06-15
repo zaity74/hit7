@@ -76,17 +76,17 @@
           <button @click="leftMove()"  class="btnR">left</button>
           <button @click="rightMove()" class="btnL">right</button>
           <div class="slidePlaylist_box" v-bind:style="{'margin-left': (this.index) + 'px','transition': (this.transition)}">
-            <div class="news_card" v-for="p in ourPlaylist" :key="p.id">
+            <div class="news_card" v-for="p in playlists" :key="p.id">
               <div class="image_player">
                   <span class="contenu_image">
-                    <img :src="p.img"  alt="" class="image_song" />
+                    <img :src="p.image"  alt="" class="image_song" />
                   </span>
-                  <div class="player_song">
+                <!-- <div class="player_song">
                     <p @click.prevent="p.isPlaying ? pause(p) : play(p)" class="play" >{{ p.isPlaying ? 'Pause' : 'Play' }} </p>
-                  </div>
+                  </div>-->
               </div>
-              <n-link :to="'/OurPlaylist/' + p.id">
-                <p class="titre">{{p.titre}}</p>
+              <n-link :to="'/Playlist/' + p.slug">
+                <p class="titre">{{p.title}}</p>
               </n-link>
               <p class="artiste">{{p.bpm}}</p>
             </div>
@@ -244,6 +244,13 @@ export default {
    head() {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+    };
+  },
+    async asyncData({ $content }) {
+    const playlists = await $content("playlist").fetch();
+
+    return {
+      playlists,
     };
   },
   data: () => {
@@ -1260,8 +1267,7 @@ export default {
     musique: [
     {
       id: 0,
-      artiste:
-        'artiste 1',
+      artiste: 'artiste 1',
       img: require('@/assets/image/rihanna.jpg'),
       titre: 'titre 1',
       song: require('@/assets/musique/song1$.mp4'),
