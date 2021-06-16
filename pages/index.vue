@@ -22,13 +22,14 @@
           
         </div>
         <div class="playlist_box">
-         <div class="songs" v-for="p in musique" :key="p.id">
-           <p @click.prevent="p.isPlaying ? pause(p) : play(p)" class="play" >{{ p.isPlaying ? 'Pause' : 'Play' }}</p>
+         <div class="songs" v-for="p in musiques" :key="p.id">
+           <p @click="playAudio(p.songmp4) " class="play" >'Play'</p>
+           <p @click="pauseAudio(p.songmp4) " class="play" >'Pause'</p>
            <span class="contenu_image">
-             <img :src="p.img"  alt="" class="image_song" />
+             <img :src="p.image"  alt="" class="image_song" />
            </span>
            <p class="artiste">{{p.artiste}}</p>
-           <p class="titre">{{p.titre}}</p>
+           <p class="titre">{{p.title}}</p>
            <p class="bpm">{{p.bpm}}</p>
            <p class="duree">{{p.duree}}</p>
            <img class="like" src="@/assets/image/heart.png" alt="like" />
@@ -248,9 +249,13 @@ export default {
   },
     async asyncData({ $content }) {
     const playlists = await $content("playlist").fetch();
+    const musiques = await $content("musique").fetch();
 
     return {
       playlists,
+      musiques,
+      playingAudio: null,
+      isPlaying: true,
     };
   },
   data: () => {
@@ -258,7 +263,7 @@ export default {
     index: 0,
     transition: 'transform 0.6s ease',
     boxMusique: [],
-          actualite: [
+      actualite: [
           {
               id: 0,
               titre: 'Blog 1',
@@ -1564,6 +1569,14 @@ export default {
     },
     mouseleave(p){
       p.prix = '24 €'
+    },
+    playAudio(song) {
+      this.showMusic = true
+      this.playingAudio = new Audio(song);
+      this.playingAudio.play();
+    },
+    pauseAudio(song) {
+      if (this.playingAudio) this.playingAudio.pause();
     }
     /*filterItems(filter){
       if (filter === 'rap') {
