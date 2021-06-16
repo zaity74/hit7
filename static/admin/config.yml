@@ -61,3 +61,29 @@ collections:
       - { label: 'Genre', name: 'genre', widget: 'string' }
       - { label: 'Prix', name: 'prix', widget: 'string' }
       - { label: 'Duree', name: 'duree', widget: 'string' }
+
+  - name: 'profil'
+    label: 'Profil'
+    folder: 'content/profil'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Ville', name: 'ville', widget: 'string' }
+      - { label: 'Age', name: 'age', widget: 'number' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Mail', name: 'mail', widget: 'string' }
+      - { label: 'Social', name: 'social', widget: 'link' }
+      - label: 'Tracks'
+        name: 'tracks'
+        widget: 'list'
+        fields:
+          - { label: 'Bpm', name: 'bpm', widget: 'string' }
+          - { label: 'Song Title', name: 'songtitle', widget: 'string' }
+          - { label: 'Song mp4', name: 'songmp4', widget: 'file' }
+          - { label: 'Genre', name: 'genre', widget: 'string' }
