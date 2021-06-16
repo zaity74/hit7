@@ -8,5 +8,5 @@ artiste: Artiste 4
 songmp4: /img/free-nekfeu-x-nepal-ft-damso-type-beat-silence.mp3
 genre: Chill
 prix: 25 €
-duree: 2:51
+duree: "2 : 51"
 ---
