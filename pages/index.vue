@@ -1327,7 +1327,7 @@ export default {
     song: require('@/assets/musique/yo.mp4'),
     isPlaying : false,
     duree : '04:30',
-    prix: '24 €',
+    prix: '24€ ',
     bpm: '145 BPM',
      genre : 'rnb'
     },
@@ -1915,13 +1915,13 @@ color: #535353;
      border-radius: 6px;
     }
    .home_box .about .playlist_box .songs .titre{
-    padding-left: 40px;
+    padding-left: 0px !important;
     color: #524F4F;
     font-weight: 600;
     text-transform: uppercase;
     }
     .home_box .about .playlist_box .songs .artiste{
-    padding-left: 80px;
+    /*padding-left: 80px;*/
     color: #524F4F;
     font-weight: 800;
     }
