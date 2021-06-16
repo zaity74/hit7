@@ -78,7 +78,7 @@ collections:
       - { label: 'Age', name: 'age', widget: 'number' }
       - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Mail', name: 'mail', widget: 'string' }
-      - { label: 'Social', name: 'social', widget: 'link' }
+      - { label: 'Social', name: 'social', widget: 'links' }
       - label: 'Tracks'
         name: 'tracks'
         widget: 'list'
