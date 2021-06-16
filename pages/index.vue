@@ -31,6 +31,7 @@
            <p class="artiste">{{p.artiste}}</p>
            <p class="titre">{{p.title}}</p>
            <p class="bpm">{{p.bpm}}</p>
+           <p class="bpm">{{p.genre}}</p>
            <p class="duree">{{p.duree}}</p>
            <img class="like" src="@/assets/image/heart.png" alt="like" />
            <!-- Au Hover changer le texte -->
@@ -51,21 +52,25 @@
         <button @click="leftMove()"  class="btnR">left</button>
         <button @click="rightMove()" class="btnL">right</button>
           <div class="slide_box" v-bind:style="{'margin-left': (this.index) + 'px','transition': (this.transition)}">
-            <div class="news_card" v-for="p in musique" :key="p.id">
+            <div class="news_card" v-for="p in musiques" :key="p.id">
               <div class="image_player">
                   <span class="contenu_image">
-                    <img :src="p.img"  alt="" class="image_song" />
+                    <img :src="p.image"  alt="" class="image_song" />
                   </span>
                   <div class="player_song">
-                    <p @click.prevent="p.isPlaying ? pause(p) : play(p)" class="play" >{{ p.isPlaying ? 'Pause' : 'Play' }} </p>
+                    <p @click="playAudio(p.songmp4) " class="play" >'Play'</p>
+                    <p @click="pauseAudio(p.songmp4) " class="play" >'Pause'</p>
                   </div>
               </div>
-              <p class="titre">{{p.titre}}</p>
+              <p class="titre">{{p.title}}</p>
               <p class="artiste">{{p.artiste}}</p>
             </div>
           </div>
         </div>
-        <a class="show_more" href="/tracks">Voir plus</a>
+         <n-link :to="'/musique/'">
+               <a class="show_more" href="/musique/">Voir plus</a>
+          </n-link>
+        
       </div>
 
       <!-- Playlist -->
@@ -1452,6 +1457,15 @@ export default {
   mounted () {
   this.items = this.musicItems
   this.boxMusique = this.musique
+  this.musiques.sort(function (a,b){
+  if (a.artiste > b.artiste) {
+    return -1
+  }else if (b.artiste > a.artiste) {
+    return 1
+  }else {
+    return 0
+  }
+  })
 
   //this.id = parseInt(this.$route.params.id, 0)
   },
@@ -1926,7 +1940,7 @@ color: #535353;
     font-weight: 800;
     }
      .home_box .about .playlist_box .songs .bpm{
-    padding-left: 100px;
+    padding-left: 10px;
     color: #524F4F;
     font-weight: 600;
     }

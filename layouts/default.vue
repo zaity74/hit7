@@ -11,7 +11,7 @@
           </button>
           <div id="liens_menu" :class="{ 'active' : isOpen }">
             <span><a href="#">A propos</a></span>
-            <span><a href="/tracks">Tracks</a></span>
+            <span><a href="/musique/">Musiques</a></span>
             <span><a href="/Genre/_rap">Kit</a></span>
             <span><a href="/Genre/_rnb">About</a></span>
             <span><a href="/news">Blog</a></span>
